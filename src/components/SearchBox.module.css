@@ -1,0 +1,21 @@
+.searchBox {
+  margin: 7px;
+  text-align: center;
+}
+
+.input {
+  border: none;
+  padding: 5px;
+  font-size: large;
+  width: 60vw;
+}
+
+.input:focus {
+  border: none;
+}
+
+.form {
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.516);
+  border-radius: 1rem;
+}

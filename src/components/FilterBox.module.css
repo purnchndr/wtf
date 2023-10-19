@@ -1,0 +1,44 @@
+.checkBox {
+  display: block;
+  margin: 10px 0;
+}
+
+.filterBox {
+  border-right: 1px solid white;
+  padding: 5px 10px;
+  margin: 5px;
+  width: 250px;
+  display: inline-block;
+}
+
+.filterBox h2 {
+  font-weight: 400;
+}
+
+.filterRange {
+  margin: 10px 0;
+  color: rgb(101, 101, 101);
+}
+
+.rangeSpanActive {
+  color: white;
+}
+
+.rangeSpan {
+  margin: 2px;
+  background-color: rgb(59, 59, 59);
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.range {
+  padding: 2px 10px;
+  width: 80%;
+}
+
+.locationInput {
+  font-size: large;
+  border: none;
+  padding: 3px;
+  border-radius: 3px;
+}

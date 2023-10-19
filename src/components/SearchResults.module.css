@@ -1,0 +1,68 @@
+.searchList {
+  display: inline-block;
+  width: 500px;
+}
+
+.gymCard {
+  width: 700px;
+  background-color: rgb(23, 23, 23);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.gymCardPoster {
+  display: inline-block;
+  height: 200px;
+  width: 50%;
+  position: relative;
+}
+.activitySpanHolder {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.gymCardDetails {
+  padding: 0 10px;
+  display: inline-block;
+  width: 50%;
+}
+
+.gymCardDetails p {
+  margin: 3px;
+  font-size: small;
+}
+.gymCardDetails h2 {
+  margin: 3px;
+  font-size: large;
+}
+
+.activitySpan {
+  background-color: red;
+  color: white;
+  padding: 3px 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+.categoryName {
+  background-color: rgb(166, 105, 206);
+  color: white;
+  padding: 3px 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.actionButtonCntnr p {
+  display: inline-block;
+  color: rgb(254, 255, 170);
+  font-weight: 700;
+  margin-right: 30px;
+}
+
+.actionButtonCntnr {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

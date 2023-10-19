@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 96%;
+  padding: 2%;
+}
+.footerSection {
+  width: 20%;
+}
+
+.footerSection a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
