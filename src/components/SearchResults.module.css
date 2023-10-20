@@ -67,3 +67,8 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.actionButtonCntnr a {
+  text-decoration: none;
+  color: white;
+}

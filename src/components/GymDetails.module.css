@@ -1,0 +1,67 @@
+.detailsPage {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameCntnr {
+  padding: 10px;
+  width: 50%;
+}
+
+.actionCntnr {
+  padding: 10px 50px;
+  width: 50%;
+}
+.name {
+  margin: 5px;
+}
+
+.address {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.description {
+  margin: 3px;
+}
+.poster {
+  width: 94%;
+  padding: 3%;
+  height: 300px;
+}
+
+.adctionButtons {
+  padding: 60px 30px;
+  background-color: rgb(26, 26, 26);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.plancard {
+  width: 400px;
+  padding: 3px;
+  border: 5px solid rgb(37, 37, 37);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.plancard p {
+  margin: 3px;
+  font-size: small;
+}
+
+.plancard h3 {
+  color: red;
+}
+
+.plancntnr {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.browse {
+  color: red;
+}

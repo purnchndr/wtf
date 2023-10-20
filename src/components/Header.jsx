@@ -1,12 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import style from "./Header.module.css";
 
-function Header() {
+function Header({ backbutton }) {
+  const navigate = useNavigate();
   return (
     <header className={style.header}>
       <nav className={style.nav}>
         <div className={style.navLogo}>
-          <h1 className={style.nav}>WTF</h1>
+          {backbutton ? (
+            <span className={style.backbutton} onClick={() => navigate(-1)}>
+              ⬅️
+            </span>
+          ) : null}
+          <h1 className={style.navtext}>WTF</h1>
         </div>
 
         <div className={style.navlinks}>

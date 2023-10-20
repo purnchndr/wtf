@@ -5,6 +5,7 @@ import style from "./SearchResults.module.css";
 import Button from "../common/Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function SearchResults({ filter }) {
   const [data, setData] = useState([]);
@@ -127,7 +128,8 @@ function GymCard({ gym }) {
         </div>
       </div>
       <div className={style.gymCardDetails}>
-        <h2>Mass Monster</h2>
+        {/* <h2>Mass Monster</h2> */}
+        <h2>{gym.gym_name}</h2>
         <ReactStars
           size={23}
           isHalf={true}
@@ -145,7 +147,9 @@ function GymCard({ gym }) {
         </p>
         <div className={style.actionButtonCntnr}>
           <p> &#8377; 1499 / Month</p>
-          <Button>Buy Now</Button>
+          <Button>
+            <Link to={`/gym/${gym.user_id}`}>Buy Now</Link>
+          </Button>
         </div>
       </div>
     </div>
