@@ -67,13 +67,20 @@ function GymCard({ gym }) {
       </div>
       <div className={style.gymCardDetails}>
         <h2>Mass Monster</h2>
-        <ReactStars size={23} isHalf={true} value={4.5} edit={false} />
+        <ReactStars
+          size={23}
+          isHalf={true}
+          value={gym.rating || 4}
+          activeColor="red"
+          edit={false}
+        />
         <p>
-          {gym.city}, {gym.address1} {gym.address2}
+          📌 {gym.city}, {gym.address1} {gym.address2}
         </p>
         <p>
-          {(gym.duration / 60).toFixed(0)} Hr {(gym.duration % 60).toFixed(0)}
-          Min | {gym.distance} KMs
+          ⌛ {(gym.duration / 60).toFixed(0)} Hr{" "}
+          {(gym.duration % 60).toFixed(0)}
+          Min | 🚗 {gym.distance} KMs
         </p>
         <div className={style.actionButtonCntnr}>
           <p> &#8377; 1499 / Month</p>
