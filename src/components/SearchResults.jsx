@@ -6,8 +6,9 @@ import Button from "../common/Button";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function SearchResults() {
+function SearchResults({ filter }) {
   const [data, setData] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   const [location, setLocation] = useState({ lat: 0, long: 0 });
 
   useEffect(() => {
@@ -29,21 +30,81 @@ function SearchResults() {
   }, []);
 
   useEffect(() => {
+    async function filterData() {
+      if (data.length > 0 && filter) {
+        const filterLocation = filter?.location?.toLowerCase().trim();
+        let newData = data;
+        if (filterLocation) {
+          newData = data.filter(
+            (curr) =>
+              curr.city.toLowerCase().includes(filterLocation) ||
+              curr.address1.toLowerCase().includes(filterLocation) ||
+              curr.address2.toLowerCase().includes(filterLocation)
+          );
+        }
+        if (filter.range) {
+          newData = newData.filter((curr) => {
+            if (filter.range === 10) return true;
+            else return curr.distance <= filter.range;
+          });
+        }
+
+        setFilterData(newData || []);
+      }
+    }
+    filterData();
+  }, [filter]);
+
+  //`https://devapi.wtfup.me/gym/nearestgym?lat=30.325488815850512&long=78.0042384802231`
+
+  useEffect(() => {
     async function getData() {
       const response = await axios.get(
-        "https://devapi.wtfup.me/gym/nearestgym?lat=30.325488815850512&long=78.0042384802231"
+        `https://devapi.wtfup.me/gym/nearestgym?lat=${location.lat}&long=${location.long}`
       );
-
-      setData(await response.data.data);
+      const rawdata = await response.data.data;
+      setFilterData(rawdata);
+      setData(rawdata);
     }
     getData();
   }, []);
 
   return (
     <div className={style.searchList}>
-      {data.map((curr, i) => (
-        <GymCard gym={curr} key={i} />
-      ))}
+      <p>
+        Your Cordinates is::
+        {`Latitude: ${location.lat} ,Longitude: ${location.long}`}
+      </p>
+
+      {filterData.length < 1 ? (
+        <Filters filter={filter} />
+      ) : (
+        filterData.map((curr, i) => <GymCard gym={curr} key={i} />)
+      )}
+    </div>
+  );
+}
+
+function Filters({ filter }) {
+  const {
+    location = "",
+    category = { cat: "" },
+    features = [],
+    range = 10,
+  } = filter;
+  return (
+    <div className={style.filtertext}>
+      <h2>No Information found for selected Filters</h2>
+      <h3>Try reseting them</h3>
+      <p>Location: {location ? location : " Any"}</p>
+      <p>Category: {category.cat}</p>
+      <p>
+        Features:
+        {features.length < 1
+          ? " None"
+          : features.reduce((acc, curr) => `${acc},  ${curr}`, "")}
+      </p>
+      <p>Distance: {range === 10 ? " Max" : range + " Kms"}</p>
     </div>
   );
 }

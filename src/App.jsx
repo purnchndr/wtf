@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import SearchBox from "./components/SearchBox";
 import SearchResults from "./components/SearchResults";
 import BenfitsBar from "./components/BenfitsBar";
+import Main from "./components/Main";
 
 function App() {
   return (
@@ -28,10 +29,7 @@ function MainLayout() {
     <>
       <Header />
       <SearchBox />
-      <div className="main">
-        <FilterBox />
-        <SearchResults />
-      </div>
+      <Main />
       <BenfitsBar />
       <Footer />
     </>

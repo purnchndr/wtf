@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import Button from "../common/Button";
 import style from "./FilterBox.module.css";
-function FilterBox() {
-  const [location, setLocation] = useState("");
-  const [category, setCategory] = useState({ cat: "All", index: 0 });
-  const [features, setFeatures] = useState([]);
-  const [range, setRange] = useState(2);
+function FilterBox(props) {
+  const {
+    location,
+    setLocation,
+    category,
+    setCategory,
+    features,
+    setFeatures,
+    range,
+    setRange,
+  } = props;
 
   useEffect(() => {
     console.log(location, category, features, range);
@@ -23,6 +29,13 @@ function FilterBox() {
     const { name, checked } = e.target;
     if (checked) setFeatures((curr) => [...curr, name]);
     else setFeatures((curr) => curr.filter((item) => item !== name));
+  }
+
+  function handelReset() {
+    setLocation("");
+    setCategory({ cat: "All", index: 0 });
+    setFeatures([]);
+    setRange(10);
   }
 
   return (
@@ -69,6 +82,7 @@ function FilterBox() {
             className={style.checkBoxInput}
             type="checkbox"
             value="1"
+            checked={features.includes("Zumba Class")}
             name="Zumba Class"
             onChange={handelFeatureChange}
           />
@@ -77,6 +91,7 @@ function FilterBox() {
         <div className={style.checkBox}>
           <input
             className={style.checkBoxInput}
+            checked={features.includes("Crossfit Circuite")}
             type="checkbox"
             value="1"
             name="Crossfit Circuite"
@@ -87,6 +102,7 @@ function FilterBox() {
         <div className={style.checkBox}>
           <input
             className={style.checkBoxInput}
+            checked={features.includes("Cardio Zone")}
             type="checkbox"
             value="1"
             name="Cardio Zone"
@@ -97,6 +113,7 @@ function FilterBox() {
         <div className={style.checkBox}>
           <input
             className={style.checkBoxInput}
+            checked={features.includes("Pilatets Studios")}
             type="checkbox"
             value="1"
             name="Pilatets Studios"
@@ -153,6 +170,18 @@ function FilterBox() {
           step="2"
           onChange={handelRangeChange}
         />
+      </div>
+      <Button onClick={handelReset}>Reset Filters</Button>
+      <div className={style.filtertext}>
+        <p>Location: {location ? location : " Any"}</p>
+        <p>Category: {category.cat}</p>
+        <p>
+          Features:
+          {features.length < 1
+            ? " None"
+            : features.reduce((acc, curr) => `${acc},  ${curr}`, "")}
+        </p>
+        <p>Distance: {range === 10 ? " Max" : range + " Kms"}</p>
       </div>
     </div>
   );
