@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import style from "./Footer.module.css";
 
 function Footer() {
@@ -8,26 +9,26 @@ function Footer() {
       </div>
       <div className={style.footerSection}>
         <h3>Quick Links</h3>
-        <a href="">About</a>
-        <a href="/">FAQs</a>
-        <a href="/">Term & Conditions</a>
-        <a href="/">Refund & Cancelation</a>
-        <a href="/">Contact</a>
+        <Link to="">About</Link>
+        <Link to="/">FAQs</Link>
+        <Link to="/">Term & Conditions</Link>
+        <Link to="/">Refund & Cancelation</Link>
+        <Link to="/">Contact</Link>
       </div>
       <div className={style.footerSection}>
         <h3>Explore</h3>
-        <a href="/">Arenas</a>
-        <a href="/">Studios</a>
-        <a href="/">Nutritions</a>
-        <a href="/">Personal Trainer</a>
+        <Link to="/">Arenas</Link>
+        <Link to="/">Studios</Link>
+        <Link to="/">Nutritions</Link>
+        <Link to="/">Personal Trainer</Link>
       </div>
       <div className={style.footerSection}>
         <h3>Contact</h3>
-        <a href="/">📌 Delhi, Uttam Nagar Uttam Nagar East</a>
-        <a href="/">📌 Noida, Some address 1 some address2</a>
+        <Link to="/">📌 Delhi, Uttam Nagar Uttam Nagar East</Link>
+        <Link to="/">📌 Noida, Some address 1 some address2</Link>
 
-        <a href="/">📞 9999999999</a>
-        <a href="/">✉️ info@gmail.com</a>
+        <Link to="/">📞 9999999999</Link>
+        <Link to="/">✉️ info@gmail.com</Link>
       </div>
     </footer>
   );

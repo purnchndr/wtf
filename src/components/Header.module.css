@@ -4,3 +4,23 @@
   height: 300px;
   background-size: cover;
 }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 20px;
+}
+
+.navlinks {
+}
+
+.navlinks a {
+  padding: 0 10px;
+  text-decoration: none;
+  color: rgb(116, 116, 116);
+  font-size: larger;
+}
+.selected {
+  color: white !important;
+}
