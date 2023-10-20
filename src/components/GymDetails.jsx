@@ -54,6 +54,9 @@ function GymDetails({ id }) {
     getPlanData();
   }, [id]);
 
+  const des =
+    "This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. ";
+
   return (
     <div>
       <div className={style.detailsPage}>
@@ -84,24 +87,44 @@ function GymDetails({ id }) {
         <div className={style.features}>
           <img src={facility} alt="features" />
         </div>
+
         <div className={style.plans}>
-          <h3>Choose Membership</h3>
-          <div>
+          <h2>Choose Membership</h2>
+          <div className={style.goalButtons}>
             <Button>General</Button>
             <Button inactive={true}>Goal Focused</Button>
           </div>
           <div>
-            <div>
-              <div>
-                <h1>Monthly</h1>
-                <p>fdnfjfjlfjfdjkfhdjfhdjf</p>
-              </div>
-              <div>
-                <span>&#8377;</span>
-                <p>1900</p>
-                <span>70 day</span>
-              </div>
-            </div>
+            <PlanActionCard
+              heading="Monthly"
+              des={des}
+              price={1999}
+              duration="70 days"
+            />
+            <PlanActionCard
+              heading="Monthly"
+              des={des}
+              price={2999}
+              duration="70 days"
+            />
+            <PlanActionCard
+              heading="Quaterly"
+              des={des}
+              price={4999}
+              duration="120 days"
+            />
+            <PlanActionCard
+              heading="Monthly"
+              des={des}
+              price={3999}
+              duration="70 days"
+            />
+            <PlanActionCard
+              heading="Yearly"
+              des={des}
+              price={9999}
+              duration="360 days"
+            />
           </div>
         </div>
       </div>
@@ -133,6 +156,22 @@ function PlanCard({ plan }) {
         <p>&#8377; {plan.plan_price}/ Month</p>
         <p>⌛{plan.duration}</p>
         <p>🏋️{plan.trainer_name || "Not Available"}</p>
+      </div>
+    </div>
+  );
+}
+
+function PlanActionCard({ heading, des, price, duration }) {
+  return (
+    <div className={style.planCardmain}>
+      <div className={style.headdes}>
+        <h1>{heading}</h1>
+        <p>{des}</p>
+      </div>
+      <div>
+        <span className={style.cardPriceSym}>&#8377;</span>
+        <p className={style.cardPrice}>{price}</p>
+        <span className={style.cardduration}>⌛ {duration}</span>
       </div>
     </div>
   );
