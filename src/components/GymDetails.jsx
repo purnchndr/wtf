@@ -113,12 +113,7 @@ function GymDetails({ id }) {
               price={4999}
               duration="120 days"
             />
-            <PlanActionCard
-              heading="Monthly"
-              des={des}
-              price={3999}
-              duration="70 days"
-            />
+
             <PlanActionCard
               heading="Yearly"
               des={des}
