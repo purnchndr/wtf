@@ -141,10 +141,14 @@ function GymDetails({ id }) {
 }
 
 function PlanCard({ plan }) {
+  console.log(plan);
   return (
     <div className={style.plancard}>
       <div className={style.planmain}>
-        <h3>{plan.plan_name}</h3>
+        <div className={style.iconcntr}>
+          <img className={style.icon} src={plan.images} alt={plan.plan_name} />
+          <h3 className={style.icontext}>{plan.plan_name}</h3>
+        </div>
         <p>{plan.description}</p>
       </div>
       <div className={style.planmain2}>

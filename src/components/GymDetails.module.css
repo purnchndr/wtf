@@ -138,3 +138,19 @@
   color: red;
   margin: 2px;
 }
+
+.icon {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.icontext {
+  display: inline-block;
+  overflow: hidden;
+  padding-left: 4px;
+}
+.iconcntr {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
